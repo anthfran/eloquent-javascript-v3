@@ -5,7 +5,7 @@ The dominant direction is the direction of a majority of the characters which ha
 */
 
 const SCRIPTS = require("./scripts");
-function characterScriptDirection(code) {
+function charScriptDirection(code) {
   for (let script of SCRIPTS) {
     if (script.ranges.some(([from, to]) => {
       return code >= from && code < to;
@@ -17,13 +17,15 @@ function characterScriptDirection(code) {
 }
 
 function dominantDirection(text) {
-  let result = { ltr: 0, rtl: 0 };
-  for (char of text) {
-    let direction = characterScriptDirection(char.codePointAt(0));
+  let result = { ttb: 0, ltr: 0, rtl: 0 };
+  for (character of text) {
+    let direction = charScriptDirection(character.codePointAt(0));
     if (direction != null) result[direction]++;
   }
-  if (result.ltr > result.rtl) return "ltr"
-  else return "rtl"
+  return Object.keys(result).reduce((winner, key) => {
+    if (result[key] > result[winner]) return key
+    else return winner
+  });
 }
 console.log(dominantDirection("Hello!"));
 // → ltr
