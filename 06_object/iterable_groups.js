@@ -29,22 +29,22 @@ class Group {
 }
 
 class GroupIterator {
-    constructor(group) {
-        this.group = group;
-        this.item = 0;
-    }
+  constructor(group) {
+    this.group = group;
+    this.item = 0;
+  }
 
-    next() {
-        if (this.item == this.group.array.length) return {done: true};
-        let value = this.group.array[this.item];
-        this.item++;
-        return {value, done: false};
-    }
+  next() {
+    if (this.item == this.group.array.length) return {done: true};
+    let value = this.group.array[this.item];
+    this.item++;
+    return {value, done: false};
+  }
 }
 
 Group.prototype[Symbol.iterator] = function() {
-    return new GroupIterator(this);
-  }
+  return new GroupIterator(this);
+}
 
 for (let value of Group.from(["a", "b", "c"])) {
   console.log(value);
