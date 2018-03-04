@@ -1,3 +1,3 @@
-# Eloquent Javascript Edition 3 - My Exercise Solutions
+# Eloquent Javascript 3rd Edition - My Exercise Solutions
 
 http://eloquentjavascript.net/
