@@ -35,10 +35,16 @@ PGroup.empty = new PGroup([]);
 
 let a = PGroup.empty.add("a");
 console.log(a);
+// → PGroup { items: [ 'a' ] }
+
 let ab = a.add("b");
 console.log(ab);
+// → PGroup { items: [ 'a', 'b' ] }
+
 let b = ab.delete("a");
 console.log(b);
+// → PGroup { items: [ 'a' ] }
+
 console.log(b.has("b"));
 // → true
 console.log(a.has("b"));
