@@ -13,15 +13,14 @@ Write a program that creates a string that represents an 8×8 grid, using newlin
 */
 
 function buildChessBoard(size) {
-  let hashString = '';
-  for (let i = 0; i < size; i++) hashString += "# ";
+  let output = ""
+  let hashLine = "";
+  for (let i = 0; i < size; i++) hashLine += "# ";
   for (let j = 0; j < size; j++) {
-    if (j % 2 == 0) {
-      process.stdout.write(" ");
-    }
-    console.log(hashString);
+    if (j % 2 == 0) output += " ";
+    output += hashLine + "\n";
   }
+  console.log(output);
 }
 
-buildChessBoard(8);
-buildChessBoard(16);
+buildChessBoard(4);
